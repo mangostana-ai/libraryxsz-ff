@@ -1,0 +1,91 @@
+{
+  "name": "图书网站x深圳图书馆",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "description": "图书网站联动深圳图书馆馆藏查询工具",
+  "permissions": [
+    "contextMenus",
+    "https://szlib.org.cn/*",
+    "https://www.douban.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "icons": {
+    "16": "icons/lib16x16.png",
+    "32": "icons/lib32x32.png",
+    "48": "icons/lib48x48.png",
+    "128": "icons/lib128x128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "contents/douban.js"
+      ],
+      "matches": [
+        "https://book.douban.com/subject/*"
+      ]
+    },
+    {
+      "js": [
+        "contents/read-douban.js"
+      ],
+      "matches": [
+        "https://read.douban.com/ebook/*"
+      ]
+    },
+    {
+      "js": [
+        "contents/jd.js"
+      ],
+      "matches": [
+        "https://item.jd.com/*"
+      ]
+    },
+    {
+      "js": [
+        "contents/e-jd.js"
+      ],
+      "matches": [
+        "https://e.jd.com/*"
+      ]
+    },
+    {
+      "js": [
+        "contents/zhihu.js"
+      ],
+      "matches": [
+        "https://*.zhihu.com/*"
+      ]
+    },
+    {
+      "js": [
+        "contents/dangdang.js"
+      ],
+      "matches": [
+        "*://product.dangdang.com/*"
+      ]
+    },
+    {
+      "js": [
+        "contents/e-dangdang.js"
+      ],
+      "matches": [
+        "*://e.dangdang.com/products/*"
+      ]
+    },
+    {
+      "js": [
+        "contents/szlib.js"
+      ],
+      "matches": [
+        "https://szlib.org.cn/opac/searchDetail*"
+      ]
+    }
+  ]
+}
